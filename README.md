@@ -50,10 +50,9 @@ java -jar /path_to_jar/PLMTransformationApp.jar -p=/path_to_properties/patientLe
 
 This java app can be used together with the MAPPER and BUNDLE MAKER through the mediators to become an end-to-end application.
 
-- Install file queue and trigger mediators:
-See details:
--- https://github.com/pepfar-datim/PLM/tree/master/src/openhim-mediator-plmfilequeue
--- https://github.com/pepfar-datim/PLM/tree/master/src/openhim-mediator-triggerMediator
+- Install file queue and trigger mediators. See details:
+  - https://github.com/pepfar-datim/PLM/tree/master/src/openhim-mediator-plmfilequeue
+  - https://github.com/pepfar-datim/PLM/tree/master/src/openhim-mediator-triggerMediator
 
 Once the mediators are installed,
 Go to `plmfilequeue` mediator in OpenHIM console, click on Configuration to verify the File Queue location is pointing to the correct queue folder. The bundle files will be generated from POS.
@@ -70,5 +69,5 @@ Log files will be written in the logPath directory defined in the properties fil
 ADX files generated can be found in the adxPath directory defined in the properties file.
 
 <h3>Diagram</h3>
-https://github.com/pepfar-datim/PLM/blob/master/prats.pdf
+https://github.com/pepfar-datim/FIREEngine/blob/main/diagrams/prats.pdf
 
