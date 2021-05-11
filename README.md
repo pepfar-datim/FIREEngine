@@ -4,10 +4,14 @@
 
 FIRE Engine component of the patient level monitoring (PLM)
 
+## Overview
+
 This repository contains the java code to read in FHIR bundles or Questionnaire Response from a queue, aggregate the patient data based on the mappings from OCL retrieved, generate the output in ADX format, and optionally import the data into a HMIS instance. It can be used in two ways:
 - As a stand-alone application, to manually start the java app.
 - As a component in the End-to-End application 
 Configure with the queue and trigger mediators to read the bundles from the queue and the mediator triggers the java app to run.
+
+## Use
 
 <h3>Installation</h3>
 
