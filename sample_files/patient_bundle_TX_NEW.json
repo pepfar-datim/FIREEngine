@@ -1,0 +1,1502 @@
+{
+    "resourceType": "Bundle",
+    "meta":
+    {
+        "profile": [
+            "http://datim.org/fhir/StructureDefinition/TX_PVLS_Bundle_resource"
+        ]
+    },
+    "type": "message",
+    "timestamp": "2019-05-03T19:07:53.527Z",
+    "entry": [
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3001",
+            "gender": "male",
+            "birthDate": "2012-07-28"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3001.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3001"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "ETvuR1gVP0c"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3001.HIV",
+            "subject":
+            {
+                "reference": "Patient/3001"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3001.ART",
+            "subject":
+            {
+                "reference": "Patient/3001"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3001.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3001"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-06-03T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3002",
+            "gender": "female",
+            "birthDate": "1970-01-15"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3002.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3002"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "hM06r7KLaya"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3002.HIV",
+            "subject":
+            {
+                "reference": "Patient/3002"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3002.ART",
+            "subject":
+            {
+                "reference": "Patient/3002"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3002.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3002"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-06-03T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3003",
+            "gender": "female",
+            "birthDate": ""
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3003.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3003"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "hM06r7KLaya"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3003.HIV",
+            "subject":
+            {
+                "reference": "Patient/3003"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3003.ART",
+            "subject":
+            {
+                "reference": "Patient/3003"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3003.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3003"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-05-17T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3004",
+            "gender": "other",
+            "birthDate": "2018-05-01"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3004.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3004"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "ETvuR1gVP0c"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3004.HIV",
+            "subject":
+            {
+                "reference": "Patient/3004"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3004.ART",
+            "subject":
+            {
+                "reference": "Patient/3004"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3004.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3004"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-06-03T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3005",
+            "gender": "female",
+            "birthDate": "2010-07-18"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3005.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3005"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "ETvuR1gVP0c"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3005.HIV",
+            "subject":
+            {
+                "reference": "Patient/3005"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3005.ART",
+            "subject":
+            {
+                "reference": "Patient/3005"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3005.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3005"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-05-17T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3006",
+            "gender": "unknown",
+            "birthDate": "2018-12-29"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3006.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3006"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "hM06r7KLaya"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3006.HIV",
+            "subject":
+            {
+                "reference": "Patient/3006"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3006.ART",
+            "subject":
+            {
+                "reference": "Patient/3006"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3006.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3006"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-05-17T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3007",
+            "gender": "female",
+            "birthDate": "1964-07-17"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3007.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3007"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "hM06r7KLaya"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3007.HIV",
+            "subject":
+            {
+                "reference": "Patient/3007"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3007.ART",
+            "subject":
+            {
+                "reference": "Patient/3007"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3007.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3007"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-03-30T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3008",
+            "gender": "other",
+            "birthDate": "2019-01-03"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3008.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3008"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "hM06r7KLaya"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3008.HIV",
+            "subject":
+            {
+                "reference": "Patient/3008"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3008.ART",
+            "subject":
+            {
+                "reference": "Patient/3008"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3008.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3008"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-06-03T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3009",
+            "gender": "unknown",
+            "birthDate": "1978-11-24"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3009.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3009"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "uTCWMoNzn68"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3009.HIV",
+            "subject":
+            {
+                "reference": "Patient/3009"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3009.ART",
+            "subject":
+            {
+                "reference": "Patient/3009"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3009.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3009"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-03-30T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MessageHeader",
+            "eventCoding":
+            {
+                "system": "",
+                "code": ""
+            },
+            "destination":
+            {
+                "name": "DATIM"
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Patient",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Patient"]
+            },
+            "id": "3010",
+            "gender": "male",
+            "birthDate": "1954-03-12"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Encounter",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Encounter"]
+            },
+            "status": "finished",
+            "id": "3010.YxJzeTFDoPI.2019-05-03T18:36:35.000Z",
+            "subject":
+            {
+                "reference": "Patient/3010"
+            },
+            "location": [
+            {
+                "location":
+                {
+                    "identifier":
+                    {
+                        "system": "MFL",
+                        "value": "hM06r7KLaya"
+                    }
+                }
+            }]
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Condition",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Condition"]
+            },
+            "id": "3010.HIV",
+            "subject":
+            {
+                "reference": "Patient/3010"
+            },
+            "verificationStatus": "confirmed",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "165816005"
+                }]
+            }
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "MedicationStatement",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_MedicationStatement"]
+            },
+            "id": "3010.ART",
+            "subject":
+            {
+                "reference": "Patient/3010"
+            },
+            "medicationCodeableConcept":
+            {
+                "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "432101000124108"
+                }]
+            },
+            "effectiveDateTime": "2019-05-03T18:36:35.000Z"
+        }
+    },
+    {
+        "resource":
+        {
+            "resourceType": "Observation",
+            "meta":
+            {
+                "profile": ["http://datim.org/fhir/StructureDefinition/TX_NEW_Observation"]
+            },
+            "id": "3010.TX_NEW.2019-05-03T18:36:35.000Z",
+            "code":
+            {
+                "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "10351-5"
+                }]
+            },
+            "encounter":
+            {
+                "reference": "Encounter/asdf.YxJzeTFDoPI.2019-05-03T18:36:35.000Z"
+            },
+            "subject":
+            {
+                "reference": "Patient/3010"
+            },
+            "performer":
+            {
+                "reference":
+                {
+                    "identifier":
+                    {
+                        "system": "HR Reg",
+                        "code": "asdf"
+                    }
+                }
+            },
+            "effectiveDateTime": "2019-06-03T18:36:35.000Z",
+            "valueQuantity":
+            {
+                "value": "345",
+                "unit": "/mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "/mL"
+            }
+        }
+    }]
+}

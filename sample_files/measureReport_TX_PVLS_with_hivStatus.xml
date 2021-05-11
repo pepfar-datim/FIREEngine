@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MeasureReport xmlns="http://hl7.org/fhir">
+  <id value="TXPVLS"/> 
+  <text><status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: TXPVLS</p></div></text>
+  <type value="summary"/> 
+  <measure value="Measure/TXPVLS"/> 
+  <reporter> 
+    <reference value="fAUKhpkOeRp"/> 
+  </reporter>
+  <period> 
+    <start value="2018-01-01"/> 
+    <end value="2018-03-31"/> 
+  </period> 
+  <group> 
+    <code> <coding> <code value="initial-population"/> </coding> </code> 
+    <measureScore> <value value="10"/> </measureScore> 
+    <stratifier> 
+      <code> <coding> <code value="AGE_GROUP:SEX:HIV_STATUS:TEST_INDICATION"/> </coding> </code> 
+      <stratum> 
+        <value> <coding> <code value="P0Y--P1Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="5"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P0Y--P1Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="4"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P1Y--P5Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="120"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P1Y--P5Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="90"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P5Y--P10Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="5"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P5Y--P10Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P10Y--P15Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P10Y--P15Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P15Y--P20Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P15Y--P20Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P20Y--P25Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P20Y--P25Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P25Y--P30Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P25Y--P30Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P30Y--P35Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P30Y--P35Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P35Y--P40Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P35Y--P40Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P40Y--P45Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P40Y--P45Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P50Y--P9999Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P50Y--P9999Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+    </stratifier>
+    </group>
+    <group> 
+    <code> <coding> <code value="numerator"/> </coding> </code> 
+    <measureScore> <value value="20"/> </measureScore> 
+    <stratifier> 
+      <code> <coding> <code value="AGE_GROUP:SEX:HIV_STATUS:TEST_INDICATION"/> </coding> </code> 
+      <stratum> 
+        <value> <coding> <code value="P0Y--P1Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="5"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P0Y--P1Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="4"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P1Y--P5Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="120"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P1Y--P5Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="90"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P5Y--P10Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="5"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P5Y--P10Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P10Y--P15Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P10Y--P15Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="20"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P15Y--P20Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+     
+      <stratum> 
+        <value> <coding> <code value="P40Y--P45Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P50Y--P9999Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P50Y--P9999Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+    </stratifier> 
+  </group>
+  <group> 
+    <code> <coding> <code value="denominator"/> </coding> </code> 
+    <measureScore> <value value="300"/> </measureScore> 
+    <stratifier> 
+      <code> <coding> <code value="AGE_GROUP:SEX:HIV_STATUS:TEST_INDICATION"/> </coding> </code> 
+      <stratum> 
+        <value> <coding> <code value="P0Y--P1Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P0Y--P1Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P1Y--P5Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P1Y--P5Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P5Y--P10Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P5Y--P10Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P10Y--P15Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P10Y--P15Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P15Y--P20Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P15Y--P20Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P20Y--P25Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P20Y--P25Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P25Y--P30Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P25Y--P30Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P30Y--P35Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P30Y--P35Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P35Y--P40Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P35Y--P40Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P40Y--P45Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P40Y--P45Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+      <stratum> 
+        <value> <coding> <code value="P50Y--P9999Y:F:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum> 
+      <stratum> 
+        <value> <coding> <code value="P50Y--P9999Y:M:POSITIVE:Undocumented_Test_Indication"/> </coding> </value> 
+        <measureScore> <value value="0"/> </measureScore> 
+      </stratum>
+    </stratifier> 
+  </group>
+</MeasureReport> 
