@@ -18,6 +18,9 @@ public class MetadataMappings {
   private List<String> optionsWithValidExpression;
   private Map<String, String> mapProfileToPeriodPath;
   private Map<String, String> mapProfileToLocationdPath;
+  private Map<String, String> mapHmisConceptIDToFhirConceptID;
+  private Map<String, String> mapFhirConceptIDToName;
+  
   
   private final static Logger log = Logger.getLogger("mainLog");
   
@@ -33,7 +36,8 @@ public class MetadataMappings {
     this.mapOptionIDtoCategoryOptionObj = ts.getMapOptionIDtoCategoryOptionObj(); 
     this.mapProfileToLocationdPath = ts.getMapProfileToLocationPath();
     this.mapProfileToPeriodPath = ts.getMapProfileToPeriodPath();
-    
+    this.mapFhirConceptIDToName = ts.getMapFhirConceptIDToName();
+    this.mapHmisConceptIDToFhirConceptID = ts.getMapHmisConceptIDToFhirConceptID();
   }
 
   /**
@@ -61,6 +65,12 @@ public class MetadataMappings {
   public Map<String, CategoryOption> getMapOptionIDtoCategoryOptionObj(){
     return this.mapOptionIDtoCategoryOptionObj;
   }
+  public Map<String, String> getMapFhirConceptIDToName(){
+    return this.mapFhirConceptIDToName;
+  }
+  public Map<String, String> getMapHmisConceptIDToFhirConceptID(){
+    return this.mapHmisConceptIDToFhirConceptID;
+  }
     
   public List<String> getOptionsWithValidExpression(){
     return this.optionsWithValidExpression;
@@ -69,7 +79,8 @@ public class MetadataMappings {
   public void validateOptionsWithValidExpression() throws DataProcessingException{
     List<String> optionIDsWithValidExpression = new ArrayList<String>();
     StringBuffer errorSB = new StringBuffer();
-    
+    log.info("validateOptionsWithValidExpresison starts...");
+    log.info("this.mapOptionIDtoCategoryOptionObj.keySet():"+this.mapOptionIDtoCategoryOptionObj.keySet());
     for (String optionID: this.mapOptionIDtoCategoryOptionObj.keySet()) {
       CategoryOption co = mapOptionIDtoCategoryOptionObj.get(optionID);
       // check every expression for co. If invalid expression found, not include this option, as we don't know which expression to use otherwise. Can't just use the default expression which may not be the expression intended and cause data error if used. 

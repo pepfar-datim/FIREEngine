@@ -11,5 +11,6 @@ public interface TerminologyServiceInterface {
   public Map<String, CategoryOption> getMapOptionIDtoCategoryOptionObj ();
   public Map<String, String> getMapProfileToPeriodPath();
   public Map<String, String> getMapProfileToLocationPath();
-    
+  public Map<String, String> getMapFhirConceptIDToName();
+  public Map<String, String> getMapHmisConceptIDToFhirConceptID();
 }

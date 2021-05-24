@@ -22,6 +22,7 @@ public class Configuration {
   private static boolean archiveFilesInQueue = true;
   private static boolean importIntoHMIS = true;
   private static String schematronValidatorLocation;
+  private static boolean readFromFhirServer = false;
  
   private Configuration() {}
 
@@ -44,12 +45,13 @@ public class Configuration {
     importIntoHMIS = RESOURCE_BUNDLE.getProperty("importIntoHMIS").trim().equalsIgnoreCase("true"); 
     inputBundleType = RESOURCE_BUNDLE.getProperty("inputBundleType").trim();
     schematronValidatorLocation = RESOURCE_BUNDLE.getProperty("schematronValidatorLocation").trim();
+    readFromFhirServer = RESOURCE_BUNDLE.getProperty("readFromFhirServer").trim().equalsIgnoreCase("true");
   }
 
   private static void validate(){
 
     //1. check that configuration has all required values
-    String[] expectedVariables = { "dhisdomain", "username", "password", "archivePath", "logPath", "adxPath", "parcialProcessingAllowed", "archiveFilesInQueue", "oclDomain", "oclVersion", "importIntoHMIS", "inputBundleType"};
+    String[] expectedVariables = { "dhisdomain", "username", "password", "archivePath", "logPath", "adxPath", "parcialProcessingAllowed", "archiveFilesInQueue", "oclDomain", "oclVersion", "importIntoHMIS", "inputBundleType", "schematronValidatorLocation", "readFromFhirServer"};
     String missing = "";
     for (String key : expectedVariables) {
       if (!RESOURCE_BUNDLE.containsKey(key)) {
@@ -165,6 +167,11 @@ public class Configuration {
 
   public static boolean isParcialProcessingAllowed(){
     return parcialProcessingAllowed;
+  }
+  
+
+  public static boolean isReadFromFhirServer(){
+    return readFromFhirServer;
   }
 
   public static void setParcialProcessingAllowed(boolean parcialProcessingAllowed){

@@ -11,16 +11,10 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import org.apache.commons.io.FilenameUtils;
-import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.r4.model.Bundle.BundleEntryRequestComponent;
-import org.hl7.fhir.r4.model.CanonicalType;
-
 import org.hl7.fhir.r4.model.QuestionnaireResponse;
 import org.hl7.fhir.r4.model.QuestionnaireResponse.QuestionnaireResponseItemComponent;
-import org.hl7.fhir.r4.model.QuestionnaireResponse.QuestionnaireResponseItemAnswerComponent ;
-
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.DataFormatException;
 import ca.uhn.fhir.parser.IParser;
@@ -29,7 +23,7 @@ public class BundleParserQR extends BundleParser {
 
   private final static Logger log = Logger.getLogger("mainLog");    
 
-  public Data parse(File inputFile, MetadataMappings mappings, String schematronValidatorLocation) throws DataProcessingException, DataFormatException{   
+  public Data<PatientData> parse(File inputFile, MetadataMappings mappings, String schematronValidatorLocation) throws DataProcessingException, DataFormatException{   
       Bundle bundle = null;
       IParser parser = null;     
       FhirContext ctxR4 = FhirContext.forR4();
@@ -65,8 +59,8 @@ public class BundleParserQR extends BundleParser {
         log.info("Before validation, bundle has entry size:" + bundle.getEntry().size());
         List<PatientData> patientDataList = getPatientDataEntries(bundle, mappings);
         log.info("****** The patient data list size before validation:  " + patientDataList.size());    
-        patientDataList = Validator.validate(bundle, patientDataList, "questionnaireResponse", schematronValidatorLocation);
-        return new Data(patientDataList);
+        //patientDataList = Validator.validate(bundle, patientDataList, "questionnaireResponse", schematronValidatorLocation);
+        return new Data<PatientData>(patientDataList);
       } catch (DataFormatException dfe) {
         log.info("data format exception caught when parse bundle resource: " + dfe.getMessage());
         throw new DataProcessingException("Invalid format for bundle. " + dfe.getMessage());

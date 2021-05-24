@@ -24,13 +24,16 @@ public class TerminologyServiceOCLImpl implements TerminologyServiceInterface {
 
   protected static final String HAS_CATEGORY = "Has Category";
   protected static final String HAS_OPTION = "Has Option";
-    
+  protected static final String SAME_AS = "Same As";
+  
   private Map<String, List<String>> mapDataElementIDtoProfiles = new HashMap<String,List<String>>();
   private Map<String, List<String>> mapDataElementIDtoCategories = new HashMap<String, List<String>>() ;
   private Map<String, List<String>> mapCategoryIDtoOptions = new HashMap<String, List<String>>() ;
   private Map<String, CategoryOption> mapOptionIDtoCategoryOptionObj = new HashMap<String, CategoryOption>() ;
   private Map<String, String> mapProfileToPeriodPath = new HashMap<String,String>() ;
-  private Map<String, String> mapProfileToLocationdPath = new HashMap<String,String>() ;
+  private Map<String, String> mapProfileToLocationdPath = new HashMap<String,String>() ;  
+  private Map<String, String> mapHmisConceptIDToFhirConceptID = new HashMap<String,String>() ;
+  private Map<String, String> mapFhirConceptIDToName = new HashMap<String,String>() ;
   
   private String countryCode;
   private String oclVersion;
@@ -38,22 +41,130 @@ public class TerminologyServiceOCLImpl implements TerminologyServiceInterface {
   private String dhisDomain;
   private User oclUser;
   private User dhisUser;
+  private String inputBundleType;
+  
 
-
-  public TerminologyServiceOCLImpl(String domain, String dhisDomain, String oclVersion, User oclUser, User dhisUser) throws HTTPUtilException, RuntimeException {
+  public TerminologyServiceOCLImpl(String domain, String dhisDomain, String oclVersion, User oclUser, User dhisUser,String inputBundleType) throws HTTPUtilException, RuntimeException {
     this.oclDomain = domain;
     this.dhisDomain = dhisDomain;
     this.oclVersion = oclVersion;
     this.oclUser = oclUser;
     this.dhisUser = dhisUser;    
-    
-    loadOCLMappings();
+    this.inputBundleType = inputBundleType;
+    if (this.inputBundleType != null && this.inputBundleType.equalsIgnoreCase(BundleParser.BUNDLE_TYPE_MEASURE_REPORT)) {
+      loadOCLMappingsForMeasureReport();
+    }else {
+      loadOCLMappings();
+    }
   }
+  
 
  
+  /**
+   * get DATIM mappings from OCL for inputBundleType: MeasureReport
+   * 
+   * @throws HTTPUtilException
+   * @throws DataProcessingException
+   */
+  private void loadOCLMappingsForMeasureReport() throws HTTPUtilException, RuntimeException{
+    // TODO Auto-generated method stub
+    try {
+      
+   
+    String query = oclDomain;      
+    log.info("Load OCL mappings for MeasureReport:  " + query);
+      
+    JsonNode json = HTTPUtil.getJsonFromZip(query, oclUser);          
+    JsonNode jsonC = json.get("concepts");          
+    JsonNode jsonM = json.get("mappings");
+    
+    Set<String>validCategoryOptionIDs = new HashSet<String>();
+        
+    log.log(Level.INFO, "Mapping size from OCL: " + jsonM.size());
+    for (JsonNode c : jsonC) {                
+      String id = c.get("id").asText();        
+      String conceptClass = c.get("concept_class").asText();
+      String profile = "";
+      String code = "";
+      
+      if (conceptClass.equalsIgnoreCase("category option")) {        
+        if (c.get("display_name") != null) {            
+          code = c.get("display_name").asText();
+          CategoryOption co = new CategoryOption(id, code, "");
+          this.mapOptionIDtoCategoryOptionObj.put(id, co);
+          validCategoryOptionIDs.add(id);
+        }                         
+      }else if (conceptClass.equalsIgnoreCase("data element")) {         
+        
+         // this.mapDataElementIDtoProfiles.put(id, applicableProfiles);
+        
+      }else if (conceptClass.equalsIgnoreCase("Fhir_disag") || conceptClass.equalsIgnoreCase("Fhir_category") 
+          || conceptClass.equalsIgnoreCase("Fhir_measure")) {// for measure report
+        if (c.get("display_name") != null) {            
+          String displayName = c.get("display_name").asText();
+          this.mapFhirConceptIDToName.put(id, displayName);
+        }
+        
+      }
+    }
+    log.info("mapDataElementIDtoProfiles:"+mapDataElementIDtoProfiles);     
+    log.info("mapProfiletoPeriod: " + this.mapProfileToPeriodPath);
+    log.info("mapProfileToLocation:"+ this.mapProfileToLocationdPath);
+    log.info("mapFhirConceptIDToName: " + this.mapFhirConceptIDToName);
+    
+    for (JsonNode m : jsonM) {        
+      String mapType = m.get("map_type").asText();   
+      if (mapType.equalsIgnoreCase(HAS_CATEGORY)) {          
+        String dataElementID = m.get("from_concept_code").asText() ;
+        String categoryID = m.get("to_concept_code").asText();
+        
+        List<String> categoryList = new ArrayList<String>();
+        if (this.mapDataElementIDtoCategories.containsKey(dataElementID)) {
+          categoryList = this.mapDataElementIDtoCategories.get(dataElementID);
+        }
+        categoryList.add(categoryID);
+        this.mapDataElementIDtoCategories.put(dataElementID, categoryList);
+                 
+      }else if (mapType.equalsIgnoreCase(HAS_OPTION)) {
+        String categoryID = m.get("from_concept_code").asText() ;
+        String optionID = m.get("to_concept_code").asText();   
+        
+       // should only load those optionID that is for inputBundleType ??
+        if(validCategoryOptionIDs.contains(optionID)) {
+          List<String> optionList = new ArrayList<String>();
+          if (this.mapCategoryIDtoOptions.containsKey(categoryID)) {
+            optionList = this.mapCategoryIDtoOptions.get(categoryID);
+          }
+          optionList.add(optionID);
+          this.mapCategoryIDtoOptions.put(categoryID, optionList);
+        }                         
+      }  else if (mapType.equalsIgnoreCase(SAME_AS)) {
+        String hmisConceptID = m.get("from_concept_code").asText() ;
+        String fhirConceptID = m.get("to_concept_code").asText(); 
+        this.mapHmisConceptIDToFhirConceptID.put(hmisConceptID, fhirConceptID);
+      }
+      
+    }
+    log.info("*** mapDataElementIDtoCategories size: : " + this.mapDataElementIDtoCategories.size() + "\n" + this.mapDataElementIDtoCategories +
+         "\n*** mapCategoryIDtoOptions size :"+ this.mapCategoryIDtoOptions.size()  + "\n"+ this.mapCategoryIDtoOptions +
+         "\n *** mapOptionIDtoCategoryOptionObj size :"+ this.mapOptionIDtoCategoryOptionObj.size() + " " + mapOptionIDtoCategoryOptionObj);
+    log.info("========= mapHmisConceptIDToFhirConceptID:"+mapHmisConceptIDToFhirConceptID.size() + " " + mapHmisConceptIDToFhirConceptID);
+    }
+    catch (HTTPUtilException e) {
+      log.log(Level.SEVERE, "Encountered HTTPUtilExceptioin when loading OCL mappings for MeasureReport. " + e.getMessage());
+      throw new HTTPUtilException(e.getMessage());
+    } 
+    catch (Exception e) {
+      log.log(Level.SEVERE, "Error loading OCL mappings for MeasureReport. " + e.getMessage());
+      throw new RuntimeException(e.getMessage());
+    }
+  }
+
+
+
 
   /**
-   * get DATIM mappings from OCL
+   * get DATIM mappings from OCL for inputBundleType: QR, resource
    * 
    * @throws HTTPUtilException
    * @throws DataProcessingException
@@ -85,6 +196,10 @@ public class TerminologyServiceOCLImpl implements TerminologyServiceInterface {
           HashMap<String, String> mapProfileToExpressions = new HashMap<String, String>(); // contains profile as key, as well as "expression" as key for the default          
           JsonNode  extras = c.get("extras");// contains "expressions_resource" and "expressions_questionnaireResponse"
           
+          /*if (extras.get("expressions_" + Configuration.getInputBundleType()) == null ) {
+            log.info("Warning:: expression is null for category option for " + id + " - " + c.get("display_name") + ". extras.get(expressions_" + Configuration.getInputBundleType() + ") is null.");
+            continue;
+          }*/
            for (JsonNode expr : extras.get("expressions_" + Configuration.getInputBundleType())) {             
              ObjectMapper mapper = new ObjectMapper();
              Map<String, String> exprMap = mapper.convertValue(expr, new TypeReference<Map<String, String>>(){}); // contains 'default' as the default expression, expression 'profile': as the expression for a specific indicator          
@@ -200,6 +315,13 @@ public class TerminologyServiceOCLImpl implements TerminologyServiceInterface {
   
   public Map<String, CategoryOption> getMapOptionIDtoCategoryOptionObj (){
    return this.mapOptionIDtoCategoryOptionObj;
+  }
+  
+  public Map<String, String> getMapFhirConceptIDToName(){
+    return this.mapFhirConceptIDToName;
+  }
+  public Map<String, String> getMapHmisConceptIDToFhirConceptID(){
+    return this.mapHmisConceptIDToFhirConceptID;
   }
   
   public String getCountryCode(){

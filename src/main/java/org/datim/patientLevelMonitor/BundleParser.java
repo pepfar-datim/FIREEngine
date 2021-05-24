@@ -24,6 +24,7 @@ public class BundleParser {
   private final static Logger log = Logger.getLogger("mainLog");
   public static final String BUNDLE_TYPE_QUESTIONNAIRE_RESPONSE = "QuestionnaireResponse";
   public static final String BUNDLE_TYPE_RESOURCE = "Resource";
+  public static final String  BUNDLE_TYPE_MEASURE_REPORT = "MeasureReport";
 
   public Data parse(File inputFile, MetadataMappings mappings, String schematronValidatorLocation) throws DataProcessingException, DataFormatException{   
       Bundle bundle = null;
@@ -63,7 +64,7 @@ public class BundleParser {
         List<PatientData> patientDataList = getPatientDataEntries(bundle, mappings);
         log.info("****** The patient data list size before validation:  " + patientDataList.size());    
         patientDataList = Validator.validate(bundle, patientDataList, "bundle", schematronValidatorLocation);
-        return new Data(patientDataList);
+        return new Data<PatientData>(patientDataList);
       } catch (DataFormatException dfe) {
         log.info("data format exception caught when parse bundle resource: " + dfe.getMessage());
         throw new DataProcessingException("Invalid format for bundle. " + dfe.getMessage());

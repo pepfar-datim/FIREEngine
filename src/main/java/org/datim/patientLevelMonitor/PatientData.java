@@ -105,7 +105,8 @@ public class PatientData implements Serializable{
   }
   
   
-  public String getPeriod() {    
+  public String getPeriod() {   
+    log.info("period path: " + this.periodPath);
     return this.getPeriod(this.periodPath) ; 
   }
   
