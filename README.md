@@ -44,7 +44,7 @@ Configure with the queue and trigger mediators to read the bundles from the queu
 Maven is used as the software project management tool.
 
 - Set the properties in patientLevelMonitor.properties as indicated above.
-- Set `p` for the location of properties file, `q` for the location of resource files. For example, in Eclipse, under the run configurations add the program arguments:path_to_properties
+- Set `p` for the location of properties file, `q` for the location of resource files. For example, in Eclipse, under the run configurations add the program arguments:
 
 ```
 -p=/path_to_properties/patientLevelMonitor_local.properties 
