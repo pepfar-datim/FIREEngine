@@ -27,7 +27,7 @@ Configure with the queue and trigger mediators to read the bundles from the queu
 
 - oclDomain (required) The URL of the OCL to get the mappings, such as https://xxxxx.openconceptlab.org/orgs/PEPFAR/sources/PLM/v0.1/export/
 - oclVersion (optional, leave blank for now)
--	logPath (requried) The path to the folder for the log files, e.g. /User/xxx/.../logs
+-	logPath (required) The path to the folder for the log files, e.g. /User/xxx/.../logs
 - adxPath (required) The path to the folder for generated ADX output files, such as /Users/xyz/adx_output 
 - parcialProcessingAllowed (required, true|false) The flag to indicate if the process continues when an error occurs. If set to true, the process logs the error and continues. Otherwise the program stops processing when an error occurs.
 - archiveFilesInQueue (required, true|false) The flag to indicate if the files in the queue are to be moved to the archive folder after processing. 
@@ -37,7 +37,23 @@ Configure with the queue and trigger mediators to read the bundles from the queu
 - dhisdomain (optional, required if importIntoHMIS is true, leave blank otherwise) The domain of the HMIS instance, such as https://test.datim.org
 - username (optional, required if importIntoHMIS is true, leave blank otherwise) The user name to login to the HMIS instance
 - password (optional, required if importIntoHMIS is true , leave blank otherwise) The password to login into the HMIS instance
-- schematronValidatorLocation (optional, if provided it validates/filters the patient data against the schematron validation rules) The location for the schematron validator, likely through a mediator such as https://test.ohie.datim.org:xxxx/schematron_validator/  
+- schematronValidatorLocation (optional, if provided it validates/filters the patient data against the schematron validation rules) The location for the schematron validator, likely through a mediator such as https://test.ohie.datim.org:xxxx/schematron_validator/ 
+- readFromFhirServer (optional, required if inputBundleType is measureReport, true|false) The flag to indicate if the measure report is from a FHIR server (true) or a file system (false)
+
+<h3>Development</h3>
+Maven is used as the software project management tool.
+
+- Set the properties in patientLevelMonitor.properties as indicated above.
+- Set `p` for the location of properties file, `q` for the location of resource files. For example, in Eclipse, under the run configurations add the program arguments:path_to_properties
+
+```
+-p=/path_to_properties/patientLevelMonitor_local.properties 
+-q=/path_to_queue/queue
+```
+
+<h3>Building</h3>
+
+Use `mvn package -DskipTests` to build the executable jar file with dependencies which will be placed in the target directory.
 
 
 <h3>Run as a stand-alone application</h3>
