@@ -39,6 +39,9 @@ Configure with the queue and trigger mediators to read the bundles from the queu
 - password (optional, required if importIntoHMIS is true , leave blank otherwise) The password to login into the HMIS instance
 - schematronValidatorLocation (optional, if provided it validates/filters the patient data against the schematron validation rules) The location for the schematron validator, likely through a mediator such as https://test.ohie.datim.org:xxxx/schematron_validator/ 
 - readFromFhirServer (optional, required if inputBundleType is measureReport, true|false) The flag to indicate if the measure report is from a FHIR server (true) or a file system (false)
+- readFromFhirServerDomain=(optional, required if readFromFhirServer is true, leave blank otherwise) The domain of the FHIR server, e.g. http://localhost:8080]
+- readFromFhirServerUsername=(optional, required if readFromFhirServer is true) The user name to login to the FHIR server
+- readFromFhirServerPassword=(optional, required if readFromFhirServer is true) The password to login to the FHIR server
 
 <h3>Development</h3>
 Maven is used as the software project management tool.

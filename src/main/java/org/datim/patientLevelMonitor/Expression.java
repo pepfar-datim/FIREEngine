@@ -90,7 +90,7 @@ public class Expression {
        // EQ operator value should not contain [] or {}
        if (operator.equals(Operator.EQUAL.operator)) {         
          if (this.rightHandSide.startsWith("[") || this.rightHandSide.startsWith("{") 
-             || this.rightHandSide.startsWith("]") || this.rightHandSide.startsWith("}") ) {
+             || this.rightHandSide.endsWith("]") || this.rightHandSide.endsWith("}") ) {
            this.isValid = false;
            errorSB.append("\tInvliad expression. RHS should be a string or numeric value for the equal operator. Expr: \"" + this.expr +"\".");
          }           

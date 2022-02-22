@@ -99,9 +99,9 @@ public class App
         
         // read from server for measure report
         if (Configuration.getInputBundleType() != null && Configuration.getInputBundleType().equalsIgnoreCase(BundleParser.BUNDLE_TYPE_MEASURE_REPORT)
-             && Configuration.isReadFromFhirServer() ) {
-          String query = "http://localhost:8080/fhir/Measure/TXPVLS?_format=json"; // Need to change the URL to get measure report one available
-          JsonNode jsonResource = HTTPUtil.getJson(query, new User("", "")); 
+             && Configuration.isReadFromFhirServer() ) {         
+          String query = Configuration.getReadFromFhirServerDomain() + "/fhir/Measure/TXPVLS?_format=json"; // Need to change the URL to get measure report once available
+          JsonNode jsonResource = HTTPUtil.getJson(query, new User(Configuration.getReadFromFhirServerUsername(), Configuration.getReadFromFhirServerPassword())); 
           log.info("resource:" +jsonResource);
           BundleParserMeasureReport msParser = new BundleParserMeasureReport();
           Data<MeasureReport> data = msParser.parseContent(jsonResource, mm, Configuration.getSchematronValidatorLocation(), "application/json+fhir"); 

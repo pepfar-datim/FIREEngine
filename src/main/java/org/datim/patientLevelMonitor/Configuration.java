@@ -23,6 +23,7 @@ public class Configuration {
   private static boolean importIntoHMIS = true;
   private static String schematronValidatorLocation;
   private static boolean readFromFhirServer = false;
+  private static String readFromFhirServerDomain, readFromFhirServerUsername, readFromFhirServerPassword;
  
   private Configuration() {}
 
@@ -46,12 +47,15 @@ public class Configuration {
     inputBundleType = RESOURCE_BUNDLE.getProperty("inputBundleType").trim();
     schematronValidatorLocation = RESOURCE_BUNDLE.getProperty("schematronValidatorLocation").trim();
     readFromFhirServer = RESOURCE_BUNDLE.getProperty("readFromFhirServer").trim().equalsIgnoreCase("true");
+    readFromFhirServerDomain = RESOURCE_BUNDLE.getProperty("readFromFhirServerDomain").trim();
+    readFromFhirServerUsername = RESOURCE_BUNDLE.getProperty("readFromFhirServerUsername").trim();
+    readFromFhirServerPassword = RESOURCE_BUNDLE.getProperty("readFromFhirServerPassword").trim();
   }
 
   private static void validate(){
 
     //1. check that configuration has all required values
-    String[] expectedVariables = { "dhisdomain", "username", "password", "archivePath", "logPath", "adxPath", "parcialProcessingAllowed", "archiveFilesInQueue", "oclDomain", "oclVersion", "importIntoHMIS", "inputBundleType", "schematronValidatorLocation", "readFromFhirServer"};
+    String[] expectedVariables = { "dhisdomain", "username", "password", "archivePath", "logPath", "adxPath", "parcialProcessingAllowed", "archiveFilesInQueue", "oclDomain", "oclVersion", "importIntoHMIS", "inputBundleType", "schematronValidatorLocation", "readFromFhirServer", "readFromFhirServerDomain", "readFromFhirServerUsername", "readFromFhirServerPassword"};
     String missing = "";
     for (String key : expectedVariables) {
       if (!RESOURCE_BUNDLE.containsKey(key)) {
@@ -169,9 +173,17 @@ public class Configuration {
     return parcialProcessingAllowed;
   }
   
-
   public static boolean isReadFromFhirServer(){
     return readFromFhirServer;
+  }
+  public static String getReadFromFhirServerDomain() {
+    return readFromFhirServerDomain;
+  }
+  public static String getReadFromFhirServerUsername() {
+    return readFromFhirServerUsername;
+  }
+  public static String getReadFromFhirServerPassword() {
+    return readFromFhirServerPassword;
   }
 
   public static void setParcialProcessingAllowed(boolean parcialProcessingAllowed){
