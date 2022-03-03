@@ -3,7 +3,7 @@
     "meta":
     {
         "profile": [
-            "http://datim.org/fhir/StructureDefinition/TX_PVLS_Bundle_resource"
+            "http://datim.org/fhir/StructureDefinition/TX_NEW_Bundle_resource"
         ]
     },
     "type": "message",
